@@ -29,8 +29,8 @@
     <div class="wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 left-bar">
-            <div class="left-top">
+          <div class="col-md-3 left-bar" id="left-bar">
+            <!-- <div class="left-top">
               <a href="" class="avatar"><img src="" alt=""></a>
               <span class="name">Dylan Gregory</span>
               <span class="user-name">dylan-gregory</span>
@@ -39,15 +39,16 @@
               <hr>
             <div class="left-middle">
               <span class="location">icon + Greenville, SC</span>
-              <span class="email">icon + jdylangregory@gmail.com</span>
+              <div id="email-box">
+
+              </div>
             </div>
             <div class="left-bottom">
               <span class="org">Organizations</span>
               <div class="org-list">
-                <!-- this will be a template when I get more organizations -->
                 <a href="#"><img src="" alt=""></a>
               </div>
-            </div>
+            </div> -->
           </div>
 
         <div class="col-md-9 main-body">
@@ -68,18 +69,67 @@
             <button></button>
             <hr>
           </div>
-          <div class="row">
-
+          <div class="row" id="repo-list">
+            <!-- <div class="repo-box">
+              <h3><a href="#">repo name goes here</a></h3>
+              <div class="commit-stat-bar">
+                <span class="stat-bar"></span>
+              </div>
+              <div>
+                <span class="repo-lang-color"></span>
+                <span class="repo-lang"></span>
+                <span>Updated</span>
+                <relative-time datetime="2017-02-02T20:10:09Z" title="Feb 2, 2017, 3:10 PM EST">an hour ago</relative-time>
+              </div>
+            </div> -->
             <!-- repo template will go here! -->
           </div>
 
         </div>
-        <footer> This will hold all of those goodies</footer>
+        <footer> This will hold all of those goodies
 
+        </footer>
         </div>
       </div>
     </div>
 
+
+  <script id="repo-template" type="text/x-handlebars-template">
+    <div class="repo-box">
+      <h3><a href="#">{{ name }}</a></h3>
+      <div class="commit-stat-bar">
+        <span class="stat-bar"></span>
+      </div>
+      <div>
+        <span class="repo-lang-color"></span>
+        <span class="repo-lang">{{ language }}</span>
+        <span>Updated</span>
+        <relative-time datetime="2017-02-02T20:10:09Z" title="Feb 2, 2017, 3:10 PM EST">an hour ago</relative-time>
+      </div>
+    </div>
+  </script>
+
+  <script id="bio-temp" type="text/x-handlebars-template">
+    <div class="left-top">
+      <a href="" class="avatar"><img src="{{ avatar }}" alt=""></a>
+      <span class="name">{{ name }}</span>
+      <span class="user-name">{{ login }}</span>
+      <p class="bio-blurb">{{ bio }}</p>
+    </div>
+      <hr>
+    <div class="left-middle">
+      <span class="location">icon {{ location }}</span>
+      <div id="email-box">
+        {{ email }}
+      </div>
+    </div>
+    <div class="left-bottom">
+      <span class="org">Organizations</span>
+      <div class="org-list">
+        <a href="#"><img src="" alt=""></a>
+      </div>
+    </div>
+  </script>
 
 
 
