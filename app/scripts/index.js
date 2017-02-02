@@ -13,3 +13,33 @@ if (githubtoken !== undefined) {
     }
   });
 }
+
+
+/////// API demonstration with SWAPI
+//$.ajax('https://swapi.co/api...').done(function(data){
+//
+//   var planetList = data.results;
+//   displayPlanets(planetList):
+//
+// })
+//
+// function displayPlanets(planetList){
+//   var source = $().html();
+//   var template = Handlebars.compile(source);
+//
+//   _.each(planetList, function(planet){
+//
+//     $('#planet-list').append(template(planet));
+//   });
+//
+// }
+
+
+
+
+/*
+ * Ajax requests I will need to call
+ */
+
+// $.ajax('https://api.github.com/users/dylan-gregory')
+// $.ajax('https://api.github.com/users/dylan-gregory/repos')
