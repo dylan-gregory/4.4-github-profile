@@ -1,7 +1,7 @@
 
 // Bootstrap Variables
 $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
-$grid-gutter-width: 60px;
+$grid-gutter-width: 80px;
 
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
@@ -15,6 +15,10 @@ $grid-gutter-width: 60px;
 
 img {
   max-width: 100%;
+}
+.container{
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .header{
@@ -55,14 +59,15 @@ img {
 }
 
 .repo-box{
-  padding-top: 24px;
+  padding-top: 10px;
   padding-bottom: 24px;
   border-bottom: 1px solid #E5E5E5;
+  max-width: 95%;
 
 }
 
 .profile-nav{
-  margin-left: 60px;
+
   font-size: 15px;
 
   a{
@@ -73,19 +78,34 @@ img {
 }
 
 .new-button{
+  color: #fff;
+  vertical-align: middle;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+  background-color: #6cc644;
+  background-image: -webkit-linear-gradient(#91dd70, #55ae2e);
+  background-image: linear-gradient(#91dd70, #55ae2e);
+  border: 1px solid #5aad35;
   display: inline;
   float: right;
   right: 100px;
   bottom: 35px;
   position: relative;
 }
+
+.new-button-pic{
+  color: white;
+
+}
+
 .top-rule{
   margin-bottom: -10px;
+  width: 100%;
 }
 
 .top-rule2{
   margin-bottom: -10px;
   margin-top: -10px;
+  width: 100%;
 }
 
 
@@ -101,6 +121,7 @@ img {
   margin: 0;
   position: relative;
   top: 30px;
+  margin: 0px;
 }
 
 .repo-language-color {
@@ -133,4 +154,14 @@ img {
   font-weight: 300;
   line-height: 24px;
   color: #666;
+}
+
+.search-nav{
+  border-bottom: 1px solid #E5E5E5;
+  max-width: 95%;
+      padding-bottom: 10px;
+}
+
+#repo-list{
+  margin-top: -25px;
 }
