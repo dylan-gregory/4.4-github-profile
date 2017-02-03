@@ -1,8 +1,8 @@
-var $ = require('jquery');
+var $ = window.$ = window.jQuery = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
 var githubtoken = require('./gitapikey.js');
-// require('bootstrap-sass');
+require('bootstrap-sass');
 var moment = require('moment');
 moment().format();
 
@@ -92,6 +92,7 @@ function displayRepos(repoList){
   var template = Handlebars.compile(source);
 
   _.each(repoList, function(repo){
+    repo.updated_at = moment(new Date(repo.updated_at)).fromNow();
 
     $('#repo-list').append(template(repo));
     // $('#email-box').append(template(email));
@@ -108,7 +109,25 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
 });
 
 // Will have to ajax call
-// "https://api.github.com/users/dylan-gregory/orgs"
+$.ajax('https://api.github.com/users/dylan-gregory/orgs').done(function(data){
+  console.log(data);
+    var orgInfo = {
+      avatar: data[0].avatar_url
+    }
+    console.log(data[0].avatar_url);
+    displayOrgs(orgInfo);
+    // console.log(data);
+})
+
+function displayOrgs(orgInfo){
+  var source = $('#org-temp').html();
+  var template = Handlebars.compile(source);
+
+
+
+    $('#org-list').append(template(orgInfo));
+
+};
 
 //
 // $.ajax('https://api.github.com/users/dylan-gregory/').done(function(data){

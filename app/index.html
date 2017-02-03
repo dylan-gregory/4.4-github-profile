@@ -55,37 +55,66 @@
           <div class="row">
             <div class="profile-nav">
               <a href="#">Overview</a>
-              <a href="">Repositories</a>
-              <a href="">Stars</a>
-              <a href="">Followers</a>
-              <a href="">Following</a>
+              <a href="">Repositories <span>18</span></a>
+              <a href="">Stars <span>1</span></a>
+              <a href="">Followers <span>0</span></a>
+              <a href="">Following <span>0</span></a>
             </div>
           </div>
           <hr class="top-rule">
           <div class="row">
             <span><input type="text" class="form-control repo-search search-bar" placeholder="Search repositories..."></span>
-            <span>
-              <button class="btn select-menu-button js-menu-target" type="button" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Dropdown
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <!-- <span>
+              <button class="btn select-menu-button dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
                 <i>Type:</i>
                   <span class="js-select-button">
                         All
                   </span>
               </button>
-            </span>
-            <span>
+            </span> -->
+            <!-- <span>
               <button class="btn select-menu-button js-menu-target" type="button" aria-haspopup="true">
                 <i>Language:</i>
                   <span class="js-select-button">
                     All
                   </span>
               </button>
-            </span>
-            <a href="/new" class="btn new-button btn-primary ml-3">
-              <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
-              New
-            </a>
-            <hr>
-          </div>
+            </span> -->
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Dropdown
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <div class="button-box">
+              <a href="/new" class="btn new-button btn-primary ml-3">
+                <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+                New
+              </a>
+              </div>
+            </div>
+            <hr class="top-rule2">
+      <!-- </div> -->
           <div class="row" id="repo-list">
             <!-- <div class="repo-box">
               <h3><a href="#">repo name goes here</a></h3>
@@ -109,6 +138,8 @@
         </div>
       </div>
     </div>
+
+
 
 
   <script id="repo-template" type="text/x-handlebars-template">
@@ -145,20 +176,24 @@
     </div>
       <hr>
     <div class="left-middle">
-      <span class="location">icon {{ location }}</span>
+      <span class="location"><svg aria-hidden="true" class="octicon octicon-location" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M6 0C2.69 0 0 2.5 0 5.5 0 10.02 6 16 6 16s6-5.98 6-10.5C12 2.5 9.31 0 6 0zm0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61.48 3.56 1.36.92.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05zM8 5.5c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>{{ location }}</span>
       <div id="email-box">
-        {{ email }}
+        <svg aria-hidden="true" class="octicon octicon-mail" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"></path></svg>{{ email }}
       </div>
     </div>
+      <hr>
     <div class="left-bottom">
       <span class="org">Organizations</span>
-      <div class="org-list">
-        <a href="#"><img src="" alt=""></a>
+      <div class="org-list" id="org-list">
+        <!-- <a href="#"><img src="" alt=""></a> -->
       </div>
     </div>
   </script>
 
 
+  <script id="org-temp" class="org-square" type="text/x-handlebars-template" height="35" width="35">
+    <img src="{{ avatar }}" alt="">
+  </script>
 
 
 
