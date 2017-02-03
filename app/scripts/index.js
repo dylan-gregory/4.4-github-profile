@@ -3,6 +3,8 @@ var _ = require('underscore');
 var Handlebars = require('handlebars');
 var githubtoken = require('./gitapikey.js');
 // require('bootstrap-sass');
+var moment = require('moment');
+moment().format();
 
 // Send auth token to github if token is provided
 //put it in gitIgnore file! ***************************
@@ -53,14 +55,15 @@ $.ajax('https://api.github.com/users/dylan-gregory').done(function(info){
         login: info.login,
         location: info.location,
         name: info.name,
-        bio: info.bio
-
+        bio: info.bio,
+        updated_at: info.updated_at
 
       }
 
     displayBio(bioInfo);
     // console.log(data);
 });
+
 
 function displayBio(bioInfo){
   var source = $('#bio-temp').html();
@@ -75,8 +78,10 @@ function displayBio(bioInfo){
 // accessing repo API
 $.ajax('https://api.github.com/users/dylan-gregory/repos').done(function(data){
   console.log(data);
-    var repoList = data;
+  // this puts them all in reverse order, sorted by date, so that you see the newest ones first
+    var repoList = _.sortBy(data, function(o){ return o.created_at }).reverse();
     displayRepos(repoList);
+
     // console.log(data);
 });
 
@@ -94,6 +99,16 @@ function displayRepos(repoList){
   })
 
 };
+
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+});
+
+// Will have to ajax call
+// "https://api.github.com/users/dylan-gregory/orgs"
 
 //
 // $.ajax('https://api.github.com/users/dylan-gregory/').done(function(data){
@@ -119,3 +134,6 @@ function displayRepos(repoList){
 //   })
 //
 // }
+
+// To use Moment.js for getting "time update" on each repo
+//var time = moment(new Date(info.updated_at)).fromNow();
