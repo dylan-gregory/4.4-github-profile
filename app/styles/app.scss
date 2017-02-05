@@ -192,7 +192,7 @@ img {
   line-height: 30px;
   margin-top: 16px;
 }
-.avatar img{
+#avatar img{
   border-radius: 7px;
 }
 
@@ -340,4 +340,8 @@ relative-time{
 .profile-nav a:hover{
   border-bottom: 2px solid #C9510C;
 
+}
+
+.repositories{
+  border-bottom: 2px solid #C9510C;
 }

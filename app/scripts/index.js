@@ -133,8 +133,15 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-$('.avatar').tooltip('show');
+$('#avatar').tooltip('show');
 
+$(function() {
+    $('#avatar').tooltip({placement: 'bottom'});
+});
+
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+});
 //
 // $.ajax('https://api.github.com/users/dylan-gregory/').done(function(data){
 //   console.log(data);
