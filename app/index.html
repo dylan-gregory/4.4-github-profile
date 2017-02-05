@@ -18,10 +18,75 @@
       </div>
       <div class="header-right">
         <div class="create-new">
-          <a href="#">Plus sign</a>
+          <!-- <a href="#">Plus sign</a> -->
+          <div class="header-nav-item dropdown-nav1 js-menu-container">
+            <a class="header-nav-link tooltipped tooltipped-s js-menu-target" href="/new" aria-label="Create new…" data-ga-click="Header, create new, icon:add">
+              <svg aria-hidden="true" class="octicon octicon-plus float-left" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"></path></svg>
+              <span class="dropdown-caret"></span>
+            </a>
+            <div class="dropdown-menu-content js-menu-content">
+              <ul class="dropdown-menu dropdown-menu-sw">
+                <a class="dropdown-item" href="/new" data-ga-click="Header, create new repository">
+                  New repository
+                </a>
+                <a class="dropdown-item" href="/new/import" data-ga-click="Header, import a repository">
+                  Import repository
+                </a>
+                <a class="dropdown-item" href="https://gist.github.com/" data-ga-click="Header, create new gist">
+                  New gist
+                </a>
+                <a class="dropdown-item" href="/organizations/new" data-ga-click="Header, create new organization">
+                  New organization
+                </a>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="profile-and-more">
-          <a href="#">Mini profile pic</a>
+          <!-- <a href="#">Mini profile pic</a> -->
+          <div class="header-nav-item dropdown-nav2 js-menu-container">
+            <a class="header-nav-link name tooltipped tooltipped-sw js-menu-target" href="/dylan-gregory" aria-label="View profile and more" data-ga-click="Header, show menu, icon:avatar">
+              <img alt="@dylan-gregory" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/22873277?v=3&amp;s=40" width="20">
+              <span class="dropdown-caret caret2"></span>
+            </a>
+            <div class="dropdown-menu-content js-menu-content">
+              <div class="dropdown-menu dropdown-menu-sw">
+                <div class="dropdown-header header-nav-current-user css-truncate">
+                  Signed in as <strong class="css-truncate-target">dylan-gregory</strong>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/dylan-gregory" data-ga-click="Header, go to profile, text:your profile">
+                  Your profile
+                </a>
+                <a class="dropdown-item" href="/dylan-gregory?tab=stars" data-ga-click="Header, go to starred repos, text:your stars">
+                  Your stars
+                </a>
+                <a class="dropdown-item" href="/explore" data-ga-click="Header, go to explore, text:explore">
+                  Explore
+                </a>
+                  <a class="dropdown-item" href="/integrations" data-ga-click="Header, go to integrations, text:integrations">
+                    Integrations
+                  </a>
+                <a class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">
+                  Help
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">
+                  Settings
+                </a>
+                <!-- '"` --><!-- </textarea></xmp> -->
+                <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post">
+                  <div style="margin:0;padding:0;display:inline">
+                    <input name="utf8" type="hidden" value="✓">
+                    <input name="authenticity_token" type="hidden" value="ckGPasHn+yQ3PUHFIlvnHhdMgxFZi+IJAAN6hGpNxiDQT3AT0S1u6fbRYikOd7TLTknpRx0xGxgMWtZ0yS/TeQ==">
+                  </div>
+                  <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out,        icon:logout">
+                      Sign out
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -55,10 +120,10 @@
           <div class="row">
             <div class="profile-nav">
               <a href="#">Overview</a>
-              <a href="">Repositories <span>18</span></a>
-              <a href="">Stars <span>1</span></a>
-              <a href="">Followers <span>0</span></a>
-              <a href="">Following <span>0</span></a>
+              <a href="#">Repositories <span>18</span></a>
+              <a href="#">Stars <span>1</span></a>
+              <a href="#">Followers <span>0</span></a>
+              <a href="#">Following <span>0</span></a>
             </div>
           </div>
           <!-- <hr class="top-rule"> -->
@@ -137,12 +202,34 @@
           </div>
 
         </div>
-        <footer> This will hold all of those goodies
+        </div>
+        <div class="footer">
+          <div class="copywrite">
+            © 2017 GitHub, Inc.
+          </div>
+          <div class="bottom-left-links">
+            <span><a href="#">Terms</a></span>
+            <span><a href="#">Privacy</a></span>
+            <span><a href="#">Security</a></span>
+            <span><a href="#">Status</a></span>
+            <span><a href="#">Help</a></span>
+          </div>
+          <div class="bottom-icon">
+            <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" style="color: #ccc"version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+          </div>
+          <div class="bottom-right-links">
+            <span><a href="#">Contact GitHub</a></span>
+            <span><a href="#">API</a></span>
+            <span><a href="#">Training</a></span>
+            <span><a href="#">Shop</a></span>
+            <span><a href="#">Blog</a></span>
+            <span><a href="#">About</a></span>
+          </div>
 
-        </footer>
         </div>
       </div>
     </div>
+
 
 
 
@@ -164,6 +251,9 @@
             {{#if_eq language "JavaScript"}}
             <span class="repo-language-color ml-0" style="background-color:#f1e05a;"></span>
             {{/if_eq}}
+            {{#if_eq language "Ruby"}}
+            <span class="repo-language-color ml-0" style="background-color:#701516;"></span>
+            {{/if_eq}}
         </span>
         <span class="repo-lang">{{ language }}</span>
         <span class="updated">Updated</span>
@@ -174,7 +264,7 @@
 
   <script id="bio-temp" type="text/x-handlebars-template">
     <div class="left-top">
-      <a href="" class="avatar"><img src="{{ avatar }}" alt=""></a>
+      <a href="" class="avatar" data-toggle="tooltip" data-placement="bottom" title="Change your avatar"><img src="{{ avatar }}" alt=""></a>
       <span class="name">{{ name }}</span>
       <span class="user-name">{{ login }}</span>
       <p class="bio-blurb">{{ bio }}</p>

@@ -129,6 +129,12 @@ function displayOrgs(orgInfo){
 
 };
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$('.avatar').tooltip('show');
+
 //
 // $.ajax('https://api.github.com/users/dylan-gregory/').done(function(data){
 //   console.log(data);
