@@ -5813,6 +5813,7 @@ img {
     font-size: 20px; }
 
 .profile-nav {
+  background-color: white;
   margin-top: 20px;
   font-size: 15px;
   border-bottom: 1px solid #E5E5E5;
@@ -6016,4 +6017,5 @@ relative-time {
 
 .repositories {
   border-bottom: 2px solid #C9510C; }
+
 /*# sourceMappingURL=app.css.map */
