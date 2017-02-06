@@ -8,13 +8,13 @@ moment().format();
 
 // Send auth token to github if token is provided
 //put it in gitIgnore file! ***************************
-if (githubtoken !== undefined) {
-  $.ajaxSetup({
-    headers: {
-      'Authorization': 'token ' + githubtoken.token
-    }
-  });
-}
+// if (githubtoken !== undefined) {
+//   $.ajaxSetup({
+//     headers: {
+//       'Authorization': 'token ' + githubtoken.token
+//     }
+//   });
+// }
 
 
 /////// API demonstration with SWAPI
