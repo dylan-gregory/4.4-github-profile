@@ -1,20 +1,23 @@
 var $ = window.$ = window.jQuery = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
-var githubtoken = require('./gitapikey.js');
+var githubtoken; //require('./gitapikey.js'); // you can actually jsut comment out this require statement, which works
 require('bootstrap-sass');
 var moment = require('moment');
+// var sparkline = require('sparkline');    would have to do this to include the sparkline library
 moment().format();
 
 // Send auth token to github if token is provided
 //put it in gitIgnore file! ***************************
-// if (githubtoken !== undefined) {
-//   $.ajaxSetup({
-//     headers: {
-//       'Authorization': 'token ' + githubtoken.token
-//     }
-//   });
-// }
+
+// or comment this out, which is what I originally did
+if (githubtoken !== undefined) {
+  $.ajaxSetup({
+    headers: {
+      'Authorization': 'token ' + githubtoken.token
+    }
+  });
+}
 
 
 /////// API demonstration with SWAPI
@@ -47,7 +50,7 @@ moment().format();
 // $.ajax('https://api.github.com/users/dylan-gregory/repos')
 
 
-$.ajax('https://api.github.com/users/dylan-gregory').done(function(info){
+var bioData = $.ajax('https://api.github.com/users/dylan-gregory').done(function(info){
   console.log(info);
     var bioInfo = {
         avatar: info.avatar_url,
@@ -101,6 +104,8 @@ function displayRepos(repoList){
 
 };
 
+//this declares a new handlebars helper to add the dot color based on the language
+
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if(a == b) // Or === depending on your needs
         return opts.fn(this);
@@ -108,8 +113,15 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
         return opts.inverse(this);
 });
 
+
+// var starPromise = $ajax for starnums, make bio request a var too
+// Promise.all(bioPromise, starPromise).then(functions from both calls combined in here) - remove the functions, so just the ajax calls are in those vars- use promises - can do the same for the stars and followers numbers
 // Will have to ajax call
-$.ajax('https://api.github.com/users/dylan-gregory/orgs').done(function(data){
+
+// This waits to populate the organizations until it populates the bio info, so that organizations always display
+
+
+Promise.all(bioData).then($.ajax('https://api.github.com/users/dylan-gregory/orgs').done(function(data){
   console.log(data);
     var orgInfo = {
       avatar: data[0].avatar_url
@@ -117,7 +129,7 @@ $.ajax('https://api.github.com/users/dylan-gregory/orgs').done(function(data){
     console.log(data[0].avatar_url);
     displayOrgs(orgInfo);
     // console.log(data);
-})
+}))
 
 function displayOrgs(orgInfo){
   var source = $('#org-temp').html();
@@ -142,30 +154,10 @@ $(function() {
 $(document).ready(function() {
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
-//
-// $.ajax('https://api.github.com/users/dylan-gregory/').done(function(data){
-//   console.log(data);
-//     var bioInfo = data;
-//     displayRepos(bioInfo);
-//     // console.log(data);
-// })
-//
-// function displayRepos(bioInfo){
-//   var source = $('#email-temp').html();
-//   var template = Handlebars.compile(source);
-//
-//   _.each(bioInfo, function(context){
-//
-//       var context = {
-//
-//
-//       }
-//
-//     // $('#email-box').append(template(email));
-//
-//   })
-//
-// }
+
+
+//use jQuery .scroll(function()) for the top bar
+
 
 // To use Moment.js for getting "time update" on each repo
 //var time = moment(new Date(info.updated_at)).fromNow();
